@@ -34,6 +34,7 @@ module Crowfounder
     # config.i18n.default_locale = :de
     config.generators do |g|
       g.test_framework  :test_unit, :fixture => false
+      g.test_replacement :factory_girl, :dir => "test/factories"
     end
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
