@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'sorcery'
 
 group :tools do
   gem 'guard-test' # automatically runs our tests whenever there have been changes made to them
