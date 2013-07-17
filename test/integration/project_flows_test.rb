@@ -3,7 +3,7 @@ require 'test_helper'
 class ProjectFlowsTest < ActionDispatch::IntegrationTest
   test "browsing projects" do 
   	x = OpenStruct.new 	
-  	3.times do |n|
+  	(1..3).each do |n|
   		x.send("project#{n}=", FactoryGirl.create(:project, :title => "Project #{n}"))
   	end
   	visit "/projects"

@@ -7,8 +7,13 @@ class ActiveSupport::TestCase
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
+
+  # Add more helper methods to be used by all tests here...
+end
+class ActionDispatch::IntegrationTest
+  # Make the Capybara DSL available in all integration tests
   include Capybara::DSL
 
-  Capybara.app = Crowdfunder::Application
-  # Add more helper methods to be used by all tests here...
+  # Crowdfunder is to be changed to the name of your app
+  Capybara.app = Crowfounder::Application
 end
