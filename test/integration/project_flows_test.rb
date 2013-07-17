@@ -4,7 +4,7 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
   test "browsing projects" do 
   	x = OpenStruct.new 	
   	3.times do |n|
-  		x.send("project#{n}=", FactoryGirl.create(:project, :title => "Project #{n}")
+  		x.send("project#{n}=", FactoryGirl.create(:project, :title => "Project #{n}"))
   	end
   	visit "/projects"
   	assert_equal projects_path, current_path
