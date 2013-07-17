@@ -8,6 +8,8 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'sorcery'
 
+gem 'faker'
+
 group :tools do
   gem 'guard-test' # automatically runs our tests whenever there have been changes made to them
 end
