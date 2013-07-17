@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ProjectFlowsTest < ActionDispatch::IntegrationTest
+  
   test "browsing projects" do 
   	x = OpenStruct.new 	
   	(1..3).each do |n|
@@ -12,5 +13,18 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
   	assert page.has_content?('Project 1')
     assert page.has_content?('Project 2')
     assert page.has_content?('Project 3')
+  end
+
+  test "navigation" do 
+    
+    visit "/"
+
+    assert_equal root_path, current_path
+    assert_equal "Home", find('.navbar ul lie.active a').text
+    
+    find('.navbar ul').click_link('Projects')
+    assert_equal projects_path, projects_path
+    assert_equal "Projects", find('.navbar ul li.active a').text    
+
   end
 end
