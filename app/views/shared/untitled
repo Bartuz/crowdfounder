@@ -1,0 +1,1 @@
+	<%= for msg in flash[:errors].full_messages %>

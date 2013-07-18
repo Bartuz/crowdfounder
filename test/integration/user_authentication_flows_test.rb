@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class UserAuthenticationFlowsTest < ActionDispatch::IntegrationTest
+
   test "successful registration" do
   	visit "/users/new"
   	assert_equal new_user_path, current_path

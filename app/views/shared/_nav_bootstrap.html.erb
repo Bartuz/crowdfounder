@@ -11,7 +11,12 @@
             <%= link_to 'Projects', :projects %>
           </li>
           <li class="<%= 'active' if params[:controller] == 'users'%>">
-            <%= link_to "#{session[:user_id] ? 'Logout' : 'Sign up' }", new_user_path %>
+            <% if logged_in? %>
+              <%= link_to 'Logout', session_path, method: :delete %>
+            <% else %>
+              <%= link_to 'Sign up', new_user_path %></li><li>
+              <%= link_to 'Sign in', new_session_path%>
+            <% end %>
           </li>
         </ul>
       </div>
