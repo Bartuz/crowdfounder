@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">CrowdFunder</a>
+      <a class="brand" href="#">CrowFunder</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li class="<%= 'active' if current_page? root_path %>">
@@ -9,6 +9,9 @@
           </li>
           <li class="<%= 'active' if params[:controller] == 'projects'%>">
             <%= link_to 'Projects', :projects %>
+          </li>
+          <li class="<%= 'active' if params[:controller] == 'users'%>">
+            <%= link_to "#{session[:user_id] ? 'Logout' : 'Sign up' }", new_user_path %>
           </li>
         </ul>
       </div>

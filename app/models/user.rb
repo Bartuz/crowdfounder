@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :password
   has_many :projects
 
+  validates_presence_of :first_name, :last_name ,:email, :password
 end

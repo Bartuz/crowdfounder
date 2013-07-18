@@ -17,7 +17,6 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert find('h1:first').has_content? project1.title
 
   end
-
   test "navigation" do 
       project1 = FactoryGirl.create(:project, :title => "Project #{1}")
     visit "/"
