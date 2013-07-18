@@ -25,6 +25,7 @@ end
 group :test do 
   gem "database_cleaner"
   gem "factory_girl_rails" 
+  gem "capybara-webkit", '~> 1.0.0'
   gem "capybara" # needed for our integration tests, which we'll talk about more later
 end
 
