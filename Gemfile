@@ -22,6 +22,7 @@ group :development do
 end
 
 group :test do 
+  gem "database_cleaner"
   gem "factory_girl_rails" 
   gem "capybara" # needed for our integration tests, which we'll talk about more later
 end

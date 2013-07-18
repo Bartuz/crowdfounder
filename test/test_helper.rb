@@ -2,7 +2,17 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
+DatabaseCleaner.strategy = :truncation
+
 class ActiveSupport::TestCase
+  
+  teardown do 
+    DatabaseCleaner.clean       # Erase what we put into the database during the tests
+    Capybara.reset_sessions!    # Reset browser session
+    Capybara.use_default_driver # Revert Capybara.current_driver to Capybara.default_driver
+  end
+
+
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
