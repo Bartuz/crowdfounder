@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   		session[:user_id] = @user.id
   		redirect_to :root, notice: "Account created!"
   	else
-  		render :new, flash.now[:alert] = "Try again"
+      flash.now[:alert] = "Try again"
+  		render :new
   	end
   end
 
