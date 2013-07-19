@@ -5,7 +5,9 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 gem 'pg'
 gem 'sorcery'
