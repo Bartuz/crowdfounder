@@ -1,20 +1,19 @@
 Crowfounder::Application.routes.draw do
 
-  get "pledges/new"
-
-  get "pledges/edit"
-
   get "sessions/new"
 
-	resource :session
+  resource :session, only: [:create,:new,:destroy]
 
-  resources :users
-
-  get 'users/new', to: 'users#index', as: 'new_user'
+  resources :users, except: [:index]
 
   root to: "welcome#home"
 
-  resources :projects do
+  resources :projects, only: [:show,:index] do
   	resources :pledges, except: [:index]
   end
+
+  namespace :my do
+  	resources :projects
+  end
+
 end
