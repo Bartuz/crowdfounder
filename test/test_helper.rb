@@ -6,7 +6,9 @@ DatabaseCleaner.strategy = :truncation
 
 class ActiveSupport::TestCase
   
-  
+  teardown do 
+    DatabaseCleaner.clean
+  end
 
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
@@ -36,7 +38,7 @@ teardown do
     fill_in "email", with: user.email
     fill_in "password", with: pass
     click_button "Login"
-
+    user 
     # No asserts because testing is not done inside of a helper method
   end
 end
