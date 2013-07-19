@@ -18,6 +18,9 @@
               <%= link_to 'Sign in', new_session_path%>
             <% end %>
           </li>
+          <li class="<%= 'active' if params[:controller] == 'my/projects'%>">
+            <%= link_to  "My Projects",my_projects_path %>
+          </li>
         </ul>
       </div>
     </div>

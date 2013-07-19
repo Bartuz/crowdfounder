@@ -1,3 +1,4 @@
 <% @projects.each do |project| %>
 	<div class="project"> <%= project.title%> </div>
+	<%= link_to "New Project", new_my_project_path %>
 <% end %>
