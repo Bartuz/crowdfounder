@@ -11,6 +11,7 @@ class PledgesController < ApplicationController
   	@pledge = @project.pledges.build(params[:pledge])
   	@pledge.user = current_user 
   	if @pledge.save
+  		UserMailer.new_pledge(@pledge).deliver
   		redirect_to @project, notice: "Thanks for pledging!"
   	else
   		flash.now.alert = "Invalid email or password"
