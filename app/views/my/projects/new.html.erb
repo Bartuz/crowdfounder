@@ -1,0 +1,11 @@
+<%= form_for [:my,@project] do |f| %>
+
+	 <%= f.text_field :title, placeholder: 'Project Title' %>
+	 <%= f.number_field :goal, placeholder: 'Goal Amount' %>
+
+	 <%= f.text_area :teaser, placeholder: 'Teaser text, a brief description' %>
+	 <%= f.text_area :description,  placeholder: 'Detailed description. Go nuts ...' %>
+	
+	 <%= f.submit "Publish Project" %>
+
+<% end %>

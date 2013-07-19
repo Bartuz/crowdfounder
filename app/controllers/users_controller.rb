@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(params[:user])
   	if @user.save
-  		login(params[:user][:email], params[:user][:password], true)
+  		auto_login(@user)
   		redirect_to :root, notice: "Account created!"
   	else
       flash.now[:alert] = "Try again"
