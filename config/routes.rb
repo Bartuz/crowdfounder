@@ -1,5 +1,9 @@
 Crowfounder::Application.routes.draw do
 
+  get "pledges/new"
+
+  get "pledges/edit"
+
   get "sessions/new"
 
 	resource :session
@@ -10,5 +14,7 @@ Crowfounder::Application.routes.draw do
 
   root to: "welcome#home"
 
-  resources :projects
+  resources :projects do
+  	resources :pledges, except: [:index]
+  end
 end
