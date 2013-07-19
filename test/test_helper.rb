@@ -19,11 +19,17 @@ class ActiveSupport::TestCase
 end
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
+  
+  self.use_transactional_fixtures = false 
   include Capybara::DSL
-teardown do 
+  teardown do 
     DatabaseCleaner.clean       # Erase what we put into the database during the tests
     Capybara.reset_sessions!    # Reset browser session
     Capybara.use_default_driver # Revert Capybara.current_driver to Capybara.default_driver
+  end
+
+  setup do
+    reset_email
   end
 
   # Crowdfunder is to be changed to the name of your app
@@ -41,4 +47,13 @@ teardown do
     user 
     # No asserts because testing is not done inside of a helper method
   end
+
+  def reset_email
+    ActionMailer::Base.deliveries = []
+  end
+
+  def last_email
+    ActionMailer::Base.deliveries.last
+  end
+
 end
