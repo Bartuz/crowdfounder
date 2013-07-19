@@ -7,7 +7,6 @@ class My::ProjectsController < My::BaseMyController
 	end
 
 	def edit
-		redirect_to my_projects_path, notice: "Project doesn't exist!" unless @project
 	end
 
 	def update
@@ -39,7 +38,7 @@ class My::ProjectsController < My::BaseMyController
 		if current_user.projects.exists? params[:id]
 		  @project =  current_user.projects.find params[:id]
 		else
-		  @project = false
+		  raise ActionController::RoutingError.new("Not Found")
 		end
 	end
 

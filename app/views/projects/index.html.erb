@@ -1,4 +1,9 @@
 <h1>Listing projects</h1>
-<% @projects.each do |project| %>
-	<%= link_to project.title, project %>
-<% end %>
+<%= paginate @projects %>
+<% page_num = (params[:page].to_i) || 0 %>
+<% page_num -= 1 if page_num > 0 %>
+<%= page_num %>
+<%= "Displaying projects #{1+page_num*8} - #{8+8*page_num > Project.count ? Project.count : 8+8*page_num  } of #{Project.count} in total" %>
+<ul>
+	<%= render @projects %>
+</ul>

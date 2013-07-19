@@ -34,10 +34,12 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
 
     other_user = FactoryGirl.create :user
     project = FactoryGirl.create :project, user: other_user, title: "Other Dude's Project"
+    assert_raise ActionController::RoutingError do 
+    	visit edit_my_project_path(project)
 
-    visit edit_my_project_path(project)
+    end
+    # assert has_content?("doesn't exist")
 
-    assert has_content?("doesn't exist")
   end
 
   test "successful creation of project makes it public right away" do
@@ -74,5 +76,5 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert_equal new_my_project_path, current_path
     assert_equal "My Projects", find('.navbar ul li.active a').text
   end
-  
+
 end
