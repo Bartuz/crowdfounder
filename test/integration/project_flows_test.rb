@@ -24,12 +24,13 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert_equal root_path, current_path
     assert_equal "Home", find('.navbar ul li.active a').text
     
+
     find('.navbar ul').click_link('Projects')
     assert_equal projects_path,current_path
     assert_equal "Projects", find('.navbar ul li.active a').text    
 
     click_link "Project 1"
     assert_equal "Projects", find('.navbar ul li.active a').text
-
+    page.assert_selector '.navbar ul li.active a', count: 1
   end
 end
