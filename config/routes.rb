@@ -13,7 +13,9 @@ Crowfounder::Application.routes.draw do
   end
 
   namespace :my do
-  	resources :projects
+  	resources :projects do
+  		resources :images
+  	end
   end
 
 end
