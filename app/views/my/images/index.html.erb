@@ -1,0 +1,8 @@
+<h1>Pictures:</h1>
+<ul>
+	<% for img in @images do %>
+		<li class="image"> <%= image_tag img.file.url %> </li>
+	<% end %>
+</ul>
+<h1>Add new!</h1>
+<%= render 'form' %>

@@ -8,7 +8,7 @@ gem 'rails', '3.2.13'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
-
+gem 'carrierwave'
 gem 'pg'
 gem 'sorcery'
 gem 'pry'

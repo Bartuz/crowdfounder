@@ -1,0 +1,5 @@
+<%= form_for [:my,@project,@image], html: {multipart: true} do |f| %>
+    <label>My Avatar URL:</label>
+    <%= f.file_field :file %>
+    <%= f.submit "Upload Image" %>
+<% end %>

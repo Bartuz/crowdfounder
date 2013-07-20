@@ -10,6 +10,7 @@ Crowfounder::Application.routes.draw do
 
   resources :projects, only: [:show,:index] do
   	resources :pledges, except: [:index]
+  	resources :images
   end
 
   namespace :my do

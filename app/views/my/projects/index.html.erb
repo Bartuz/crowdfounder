@@ -1,4 +1,4 @@
-<% @projects.each do |project| %>
+<% for project in @projects do %>
 	<div class="project"> <%= project.title%> </div>
 <% end %>
 <%= link_to "New Project", new_my_project_path %>
