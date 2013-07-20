@@ -32,4 +32,9 @@ class My::ProjectsController < My::BaseMyController
 		end
 	end
 
+	def destroy
+		@project.destroy
+		redirect_to my_projects_path, notice: "#{@project.title} deleted!"
+	end
+
 end

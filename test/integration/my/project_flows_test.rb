@@ -84,7 +84,7 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
     project = FactoryGirl.create :project, user: me
 
     visit edit_my_project_path(project)
-
+    page.save_screenshot('screenshot.png')
     assert has_link?("Delete Project")
     click_link 'Delete Project'
 
